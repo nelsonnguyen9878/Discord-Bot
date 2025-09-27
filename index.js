@@ -1,6 +1,15 @@
 require('dotenv').config();
 const { Client, GatewayIntentBits, REST, Routes, Collection} = require('discord.js');
 const weatherCommand = require("./commands/weather");
+const express = require("express");
+
+
+// port
+const app = express;
+app.get("/", (req, res) => res.send("Bot is alive!"));
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Web server running on port ${PORT}`));
 
 // creating new client instance
 const client = new Client({ 
